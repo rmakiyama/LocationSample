@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,7 +23,7 @@ import timber.log.Timber
 class CoarseLocationFragment : Fragment() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private val viewModel: CoarseLocationViewModel by viewModels()
+    private lateinit var viewModel: CoarseLocationViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +33,9 @@ class CoarseLocationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel = ViewModelProvider.AndroidViewModelFactory
+            .getInstance(requireActivity().application)
+            .create(CoarseLocationViewModel::class.java)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         getLocationWithPermissionCheck()
     }

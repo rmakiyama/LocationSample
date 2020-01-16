@@ -1,7 +1,12 @@
 package com.rmakiyama.locationsample.ui.coarse
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.rmakiyama.locationsample.DIContainer
 
-class CoarseLocationViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class CoarseLocationViewModel(app: Application) : AndroidViewModel(app) {
+
+    val locationClient = DIContainer.resolveLocationClient(getApplication())
+    
+
 }

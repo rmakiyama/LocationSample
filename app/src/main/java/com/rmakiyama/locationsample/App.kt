@@ -1,8 +1,11 @@
 package com.rmakiyama.locationsample
 
 import android.app.Application
+import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate.*
+import com.rmakiyama.locationsample.location.LocationClient
+import com.rmakiyama.locationsample.location.LocationClientImpl
 import timber.log.Timber
 
 class App : Application() {
@@ -24,5 +27,12 @@ class App : Application() {
             MODE_NIGHT_AUTO_BATTERY
         }
         setDefaultNightMode(nightMode)
+    }
+}
+
+object DIContainer {
+
+    fun resolveLocationClient(context: Context): LocationClient {
+        return LocationClientImpl(context)
     }
 }
