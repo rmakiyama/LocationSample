@@ -34,6 +34,7 @@ class CoarseLocationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+        getLocationWithPermissionCheck()
     }
 
     override fun onRequestPermissionsResult(
