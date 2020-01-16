@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/coarse">
+
+    <fragment
+        android:id="@+id/coarse"
+        android:name="com.rmakiyama.locationsample.ui.coarse.CoarseLocationFragment"
+        android:label="fragment_coarse_location"
+        tools:layout="@layout/fragment_coarse_location" />
+</navigation>
